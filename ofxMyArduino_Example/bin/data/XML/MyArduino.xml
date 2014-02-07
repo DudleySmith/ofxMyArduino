@@ -1,0 +1,5 @@
+<Arduino>
+	<DevicePort>tty.usbmodem1411</DevicePort>
+	<PinMini>2</PinMini>
+	<PinMaxi>12</PinMaxi>
+</Arduino>
