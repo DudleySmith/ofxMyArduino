@@ -24,9 +24,17 @@ void ofApp::setup(){
     m_pnPinValues.add(m_pin10.setup("Pin 10", 0, 0, 255));
     m_pnPinValues.add(m_pin11.setup("Pin 11", 0, 0, 255));
     m_pnPinValues.add(m_pin12.setup("Pin 12", 0, 0, 255));
-
-    m_oArdServer.setup();
     
+    m_oArdServer.setup();
+    /*
+    ard.connect("/dev/tty.usbmodem1411");
+
+    ofAddListener(ard.EInitialized, this, &ofApp::setupArduino);
+	*/
+}
+
+void ofApp::setupArduino(const int & version){
+    ofLogVerbose() << "init done";
 }
 
 //--------------------------------------------------------------
@@ -45,6 +53,8 @@ void ofApp::update(){
     m_oArdClient.addPwmSignal(13, m_pin12);
     
     m_oArdServer.update();
+    
+    //ard.update();
 }
 
 //--------------------------------------------------------------
@@ -52,49 +62,57 @@ void ofApp::draw(){
     m_pnPanel.draw();
     m_pnPinValues.draw();
     
+    if(!m_oArdServer.isOK()){
+        ofSetColor(ofColor::red);
+        ofDrawBitmapString("Arduino not set", ofPoint(10, ofGetHeight() - 25));
+    }else{
+        ofSetColor(ofColor::greenYellow);
+        ofDrawBitmapString("Arduino set", ofPoint(10, ofGetHeight() - 25));
+    }
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
-
+    
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
+void ofApp::dragEvent(ofDragInfo dragInfo){
+    
 }

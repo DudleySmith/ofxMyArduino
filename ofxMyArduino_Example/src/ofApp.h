@@ -39,5 +39,8 @@ class ofApp : public ofBaseApp{
     
     ofxMyArduinoClient m_oArdClient;
     ofxMyArduinoServer m_oArdServer;
+    ofArduino ard;
+    
+    void setupArduino(const int & version);
     
 };
