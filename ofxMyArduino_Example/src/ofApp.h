@@ -24,7 +24,7 @@ class ofApp : public ofBaseApp{
     ofxPanel m_pnPanel;
     ofxPanel m_pnPinValues;
     
-    ofxIntSlider     m_pin01;
+
     ofxIntSlider     m_pin02;
     ofxIntSlider     m_pin03;
     ofxIntSlider     m_pin04;
@@ -36,6 +36,7 @@ class ofApp : public ofBaseApp{
     ofxIntSlider     m_pin10;
     ofxIntSlider     m_pin11;
     ofxIntSlider     m_pin12;
+    ofxIntSlider     m_pin13;
     
     ofxMyArduinoClient m_oArdClient;
     ofxMyArduinoServer m_oArdServer;

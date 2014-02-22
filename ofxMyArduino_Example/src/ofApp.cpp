@@ -12,7 +12,6 @@ void ofApp::setup(){
     m_pnPinValues.setup();
     m_pnPinValues.setName("Values");
     m_pnPinValues.setPosition(10, 100);
-    m_pnPinValues.add(m_pin01.setup("Pin 01", 0, 0, 255));
     m_pnPinValues.add(m_pin02.setup("Pin 02", 0, 0, 255));
     m_pnPinValues.add(m_pin03.setup("Pin 03", 0, 0, 255));
     m_pnPinValues.add(m_pin04.setup("Pin 04", 0, 0, 255));
@@ -24,6 +23,7 @@ void ofApp::setup(){
     m_pnPinValues.add(m_pin10.setup("Pin 10", 0, 0, 255));
     m_pnPinValues.add(m_pin11.setup("Pin 11", 0, 0, 255));
     m_pnPinValues.add(m_pin12.setup("Pin 12", 0, 0, 255));
+    m_pnPinValues.add(m_pin13.setup("Pin 13", 0, 0, 255));
     
     m_oArdServer.setup();
     /*
@@ -39,18 +39,18 @@ void ofApp::setupArduino(const int & version){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    m_oArdClient.addPwmSignal(2, m_pin01);
-    m_oArdClient.addPwmSignal(3, m_pin02);
-    m_oArdClient.addPwmSignal(4, m_pin03);
-    m_oArdClient.addPwmSignal(5, m_pin04);
-    m_oArdClient.addPwmSignal(6, m_pin05);
-    m_oArdClient.addPwmSignal(7, m_pin06);
-    m_oArdClient.addPwmSignal(8, m_pin07);
-    m_oArdClient.addPwmSignal(9, m_pin08);
-    m_oArdClient.addPwmSignal(10, m_pin09);
-    m_oArdClient.addPwmSignal(11, m_pin10);
-    m_oArdClient.addPwmSignal(12, m_pin11);
-    m_oArdClient.addPwmSignal(13, m_pin12);
+    m_oArdClient.addPwmSignal(2, m_pin02);
+    m_oArdClient.addPwmSignal(3, m_pin03);
+    m_oArdClient.addPwmSignal(4, m_pin04);
+    m_oArdClient.addPwmSignal(5, m_pin05);
+    m_oArdClient.addPwmSignal(6, m_pin06);
+    m_oArdClient.addPwmSignal(7, m_pin07);
+    m_oArdClient.addPwmSignal(8, m_pin08);
+    m_oArdClient.addPwmSignal(9, m_pin09);
+    m_oArdClient.addPwmSignal(10, m_pin10);
+    m_oArdClient.addPwmSignal(11, m_pin11);
+    m_oArdClient.addPwmSignal(12, m_pin12);
+    m_oArdClient.addPwmSignal(13, m_pin13);
     
     m_oArdServer.update();
     
@@ -61,6 +61,8 @@ void ofApp::update(){
 void ofApp::draw(){
     m_pnPanel.draw();
     m_pnPinValues.draw();
+    
+    //string portsNames = m_oArdServer.m_oArduino.	_port.enumerateDevices();
     
     if(!m_oArdServer.isOK()){
         ofSetColor(ofColor::red);
